@@ -1,3 +1,8 @@
+package com.aula3;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ArvoreBinaria {
     
     public static class Node{
@@ -11,6 +16,7 @@ public class ArvoreBinaria {
     }
 
     public Node root;
+    public Integer size;
 
     public void set(String name) {
         Node newNode = new Node(name);
@@ -56,6 +62,23 @@ public class ArvoreBinaria {
             }
         }
         return null;
+    }
+
+    public List<Node> sorted() {
+        List<Node> lista = new ArrayList<>();
+        Integer top = -1; 
+        Node actNode = root;
+        while (actNode != null || top != -1) {
+            while (actNode != null) {
+                lista.add(actNode);
+                actNode = actNode.left;
+                ++top;
+            }
+            actNode = lista.get(top--);
+            lista.add(actNode);
+            actNode = actNode.rigth;
+        }
+        return lista;
     }
 
     public static void main(String[] args) {
