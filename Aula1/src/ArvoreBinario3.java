@@ -1,3 +1,8 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Set;
+import java.util.TreeSet;
+
 public class ArvoreBinario3 {
     
     public static class Agenda {
@@ -73,9 +78,27 @@ public class ArvoreBinario3 {
         }
     }
 
+    void emNivel() {
+        System.out.println("Nmes em nivel:");
+        if (root == null) return;
+        Queue<Node> filaQueue = new LinkedList<>();
+        filaQueue.add(root);
+        while (!filaQueue.isEmpty()) {
+            Node actNode = filaQueue.poll();
+            System.out.println(actNode.agenda.name + " ");
+            if (actNode.left != null) {
+                filaQueue.add(actNode.left);
+            }if (actNode.right != null) {
+                filaQueue.add(actNode.right);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         ArvoreBinario3 arvoreBinaria = new ArvoreBinario3();
+        Set<Agenda> agendas = new TreeSet<>();
         Agenda[] contatos = {
+            new Agenda("Lucas",    "Rua A, 123", "1111-1111"),
             new Agenda("Lucas",    "Rua A, 123", "1111-1111"),
             new Agenda("Amanda",   "Rua B, 456", "2222-2222"),
             new Agenda("Bruno",    "Rua C, 789", "3333-3333"),
@@ -90,6 +113,7 @@ public class ArvoreBinario3 {
 
         for (Agenda coontato : contatos) {
             arvoreBinaria.add(coontato);
+            agendas.add(coontato);
         }
 
         System.out.println("Raiz: " + arvoreBinaria.root.agenda.name);
@@ -101,5 +125,9 @@ public class ArvoreBinario3 {
         }
 
         arvoreBinaria.sort();
+
+        arvoreBinaria.emNivel();
+        System.out.println(agendas.toString());
     }
+
 }
