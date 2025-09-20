@@ -14,7 +14,7 @@ public class ArrayTeste {
         System.out.println("Tamanho: "+listaNome.size());
         System.out.println("Index 1: "+listaNome.get(0));
         for (String nome: listaNome) {
-            System.out.println("Numero: " + x + " ; Nome: "+ nome);
+            System.out.println("Numero: " + " ; Nome: "+ nome);
         }
         System.out.println(listaNome.toString());
 //        Iterator<String> iterator = listaNome.iterator();
