@@ -1,5 +1,4 @@
-public class Main {
+public class Mai {
     public static void main(String[] args) {
-        }
     }
 }
