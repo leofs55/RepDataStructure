@@ -1,5 +1,3 @@
-package com.aula3;
-
 public class ArvoreBinaria2 {
 
     public static class Node{
@@ -15,7 +13,7 @@ public class ArvoreBinaria2 {
     public Node root;
 
     public String add(String name) {
-        Node actNde = addRecursivo(root, name);
+        Node root = addRecursivo(root, name);
         if (actNde.name == null) {
             return "Nome adcionado: " + name;
         }
@@ -84,3 +82,4 @@ public class ArvoreBinaria2 {
         arvoreBinaria.sort();
     }
 }
+
